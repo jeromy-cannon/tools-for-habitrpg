@@ -8,3 +8,8 @@ tasks:
   build:
     cmds:
       - pnpm exec tsc
+
+  run:
+    cmds:
+      - task: build
+      - node export.js
