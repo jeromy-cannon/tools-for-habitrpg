@@ -8,3 +8,4 @@ gear
 /js-for-habitrpg_user_data_display.tar
 /bin/
 /.env
+/dist/

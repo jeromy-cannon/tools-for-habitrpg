@@ -3,7 +3,12 @@ version: '3'
 tasks:
   default:
     cmds:
+      - task: clean
       - task: build
+
+  clean:
+    cmds:
+      - rm -Rf dist
 
   build:
     cmds:
@@ -11,5 +16,5 @@ tasks:
 
   run:
     cmds:
-      - task: build
-      - node export.js
+      - task: default
+      - pnpm exec tsx export.ts
