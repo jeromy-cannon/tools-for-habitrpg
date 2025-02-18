@@ -1,11 +1,13 @@
-import {SoulMirror} from "./soul_mirror";
+/**
+ * SPDX-License-Identifier: Apache-2.0
+ */
+import {type SoulMirror} from './soul_mirror';
 
 export class ToDo {
-    constructor(public readonly date: Date,
-                public readonly mirror: SoulMirror,
+  constructor(
+    public readonly date: Date,
+    public readonly mirror: SoulMirror,
 
-
-                public readonly title: string,
-    ) {
-    }
+    public readonly title: string,
+  ) {}
 }

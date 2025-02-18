@@ -1,48 +1,49 @@
+/**
+ * SPDX-License-Identifier: Apache-2.0
+ */
 import 'dotenv/config';
 import * as process from 'process';
-import axios, {AxiosRequestConfig} from 'axios';
+import axios, {type AxiosRequestConfig} from 'axios';
 
 async function main(argv: string[]) {
-//////////////////////////////////////////////////////////////////////
-////   Global Variables                              /////////////////
-//////////////////////////////////////////////////////////////////////
-    var content;  // holds site-wide content (gear names and stats, quests, etc)
-    var tavern;   // holds tavern data
-    var party;    // holds party data
-    var user;     // holds user's data
-    var tasksFromDb;          // holds user's tasks except for ...
-    var completedTodosFromDb; // completed To Do's
+  //////////////////////////////////////////////////////////////////////
+  ////   Global Variables                              /////////////////
+  //////////////////////////////////////////////////////////////////////
+  let content; // holds site-wide content (gear names and stats, quests, etc)
+  let tavern; // holds tavern data
+  let party; // holds party data
+  let user; // holds user's data
+  let tasksFromDb; // holds user's tasks except for ...
+  let completedTodosFromDb; // completed To Do's
 
+  //////////////////////////////////////////////////////////////////////
+  ////   Global Connection Variables      //////////////////////////////
+  //////////////////////////////////////////////////////////////////////
+  const serverName = 'Habitica'; // used in "loading" message
+  const serverUrl = 'https://habitica.com/api/v3';
+  const serverPathContent = '/content?language=en';
+  const serverPathTavern = '/groups/habitrpg';
+  const serverPathParty = '/groups/party';
+  const serverPathGuildBase = '/groups?type=guilds';
+  const serverPathUser = '/user';
+  const serverPathTasks = '/tasks/user';
+  const serverPathCompletedTodos = '/tasks/user?type=_allCompletedTodos';
+  const clientId = 'd904bd62-da08-416b-a816-ba797c9ee265-DataDisplayTool';
+  const userId = process.env.HABITICA_USER;
+  const apiToken = process.env.API_TOKEN;
+  const debug = false;
 
-//////////////////////////////////////////////////////////////////////
-////   Global Connection Variables      //////////////////////////////
-//////////////////////////////////////////////////////////////////////
-    var serverName = 'Habitica'; // used in "loading" message
-    var serverUrl = 'https://habitica.com/api/v3';
-    var serverPathContent = '/content?language=en';
-    var serverPathTavern = '/groups/habitrpg';
-    var serverPathParty = '/groups/party';
-    var serverPathGuildBase = '/groups?type=guilds';
-    var serverPathUser = '/user';
-    var serverPathTasks = '/tasks/user';
-    var serverPathCompletedTodos = '/tasks/user?type=_allCompletedTodos';
-    var clientId = 'd904bd62-da08-416b-a816-ba797c9ee265-DataDisplayTool';
-    var userId = process.env.HABITICA_USER;
-    var apiToken = process.env.API_TOKEN;
-    var debug = false;
-
-    console.log(`user: ${userId}, apiToken:${apiToken}`)
-    const response = await axios.get(`${serverUrl}${serverPathTasks}`, {
-        headers: {
-            'x-client': clientId,
-            'x-api-user': userId,
-            'x-api-key': apiToken,
-        }
-    } as AxiosRequestConfig);
-    console.log('response: ',     response);
-
-
-
+  console.log(`user: ${userId}, apiToken:${apiToken}`);
+  const response = await axios.get(`${serverUrl}${serverPathTasks}`, {
+    headers: {
+      'x-client': clientId,
+      'x-api-user': userId,
+      'x-api-key': apiToken,
+    },
+  } as AxiosRequestConfig);
+  console.log('response: ', response);
 }
 
-main(process.argv).then().catch(e => console.log(e.message, e));
+main(process.argv)
+  .then()
+  .catch(e => console.log(e.message, e));

@@ -19,7 +19,7 @@ export default [
     files: ['**/*.ts', '**/*.tsx'],
   })),
   {
-    ignores: ['docs/**/*', 'dist/*', '**/dist/*'],
+    ignores: ['docs/**/*', 'dist/*', '**/dist/*', 'js/**', '*.html'],
   },
   {
     // all files not excluded, mostly js files
@@ -142,8 +142,8 @@ export default [
       'no-restricted-syntax': [
         'error',
         {
-          selector: 'ImportDeclaration[importKind=\'type\'] ImportSpecifier',
-          message: 'Use `import {type X} from \'path\';` instead of `import type {X} from \'path\';`.',
+          selector: "ImportDeclaration[importKind='type'] ImportSpecifier",
+          message: "Use `import {type X} from 'path';` instead of `import type {X} from 'path';`.",
         },
       ],
     },

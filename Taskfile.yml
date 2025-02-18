@@ -18,3 +18,7 @@ tasks:
     cmds:
       - task: default
       - pnpm exec tsx export.ts
+
+  format:
+    cmds:
+      - pnpm eslint --fix
