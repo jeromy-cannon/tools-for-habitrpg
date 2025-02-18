@@ -5,33 +5,33 @@ import 'dotenv/config';
 import * as process from 'process';
 import axios, {type AxiosRequestConfig} from 'axios';
 
-async function main(argv: string[]) {
+async function main() {
   //////////////////////////////////////////////////////////////////////
   ////   Global Variables                              /////////////////
   //////////////////////////////////////////////////////////////////////
-  let content; // holds site-wide content (gear names and stats, quests, etc)
-  let tavern; // holds tavern data
-  let party; // holds party data
-  let user; // holds user's data
-  let tasksFromDb; // holds user's tasks except for ...
-  let completedTodosFromDb; // completed To Do's
+  // let content; // holds site-wide content (gear names and stats, quests, etc)
+  // let tavern; // holds tavern data
+  // let party; // holds party data
+  // let user; // holds user's data
+  // let tasksFromDb; // holds user's tasks except for ...
+  // let completedTodosFromDb; // completed To Do's
 
   //////////////////////////////////////////////////////////////////////
   ////   Global Connection Variables      //////////////////////////////
   //////////////////////////////////////////////////////////////////////
-  const serverName = 'Habitica'; // used in "loading" message
+  // const serverName = 'Habitica'; // used in "loading" message
   const serverUrl = 'https://habitica.com/api/v3';
-  const serverPathContent = '/content?language=en';
-  const serverPathTavern = '/groups/habitrpg';
-  const serverPathParty = '/groups/party';
-  const serverPathGuildBase = '/groups?type=guilds';
-  const serverPathUser = '/user';
+  // const serverPathContent = '/content?language=en';
+  // const serverPathTavern = '/groups/habitrpg';
+  // const serverPathParty = '/groups/party';
+  // const serverPathGuildBase = '/groups?type=guilds';
+  // const serverPathUser = '/user';
   const serverPathTasks = '/tasks/user';
-  const serverPathCompletedTodos = '/tasks/user?type=_allCompletedTodos';
+  // const serverPathCompletedTodos = '/tasks/user?type=_allCompletedTodos';
   const clientId = 'd904bd62-da08-416b-a816-ba797c9ee265-DataDisplayTool';
   const userId = process.env.HABITICA_USER;
   const apiToken = process.env.API_TOKEN;
-  const debug = false;
+  // const debug = false;
 
   console.log(`user: ${userId}, apiToken:${apiToken}`);
   const response = await axios.get(`${serverUrl}${serverPathTasks}`, {
@@ -44,6 +44,6 @@ async function main(argv: string[]) {
   console.log('response: ', response);
 }
 
-main(process.argv)
+main()
   .then()
   .catch(e => console.log(e.message, e));
