@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import * as process from 'process';
+import * as axios from 'axios';
 
-function main(argv: string[]){
+async function  main(argv: string[]){
 //////////////////////////////////////////////////////////////////////
 ////   Global Variables                              /////////////////
 //////////////////////////////////////////////////////////////////////
@@ -31,6 +32,7 @@ function main(argv: string[]){
     var debug                    = false;
 
     console.log(`user: ${userId}, apiToken:${apiToken}`)
+    const response = await axios.get(`${serverUrl}${serverPathUser}`);
 
 }
-main(process.argv);
+main(process.argv).then().catch(e => console.log(e.message, e));
