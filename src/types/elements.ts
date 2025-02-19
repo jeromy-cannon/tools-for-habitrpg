@@ -1,7 +1,7 @@
 /**
  * SPDX-License-Identifier: Apache-2.0
  */
-export enum Element {
+export enum Elements {
   FIRE = 'FIRE',
   WATER = 'WATER',
   AIR = 'AIR',
