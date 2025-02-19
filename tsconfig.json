@@ -12,14 +12,14 @@
     "moduleDetection": "force",
     "importsNotUsedAsValues": "remove",
     "module": "NodeNext",
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "types": [
       "node",
       //"mocha",
       "reflect-metadata"
     ],
     "sourceMap": true,
-    "outDir": "dist",
+    //    "outDir": "dist",
     "removeComments": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

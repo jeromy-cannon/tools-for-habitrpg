@@ -8,4 +8,7 @@ gear
 /js-for-habitrpg_user_data_display.tar
 /bin/
 /.env
-/dist/
+/src/**/*.d.ts
+/src/**/*.js
+/src/**/*.js.map
+/tsconfig.tsbuildinfo
