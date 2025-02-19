@@ -94,7 +94,7 @@ async function main(argv: string[]) {
     }
     habitDescription += `:${habit.text}`;
     if (habit.notes) {
-      habitDescription += `:${habit.notes}}`;
+      habitDescription += `:${habit.notes}`;
     }
     habit.history.forEach(historyItem => {
       if (historyItem.completed && midnightOfToday.valueOf() < new Date(historyItem.date).valueOf()) {

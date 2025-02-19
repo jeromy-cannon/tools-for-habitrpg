@@ -12,13 +12,18 @@ tasks:
 
   build:
     cmds:
-      - pnpm exec tsc
+      - source ~/.nvm/nvm.sh && nvm use v23 && pnpm exec tsc
 
   run:
     cmds:
       - task: default
-      - pnpm exec tsx export.ts
+      - source ~/.nvm/nvm.sh && nvm use v23 && pnpm exec tsx src/export.ts
+
+  run-yesterday:
+    cmds:
+      - task: default
+      - source ~/.nvm/nvm.sh && nvm use v23 && pnpm exec tsx src/export.ts -1
 
   format:
     cmds:
-      - pnpm eslint --fix
+      - source ~/.nvm/nvm.sh && nvm use v23 && pnpm eslint --fix
