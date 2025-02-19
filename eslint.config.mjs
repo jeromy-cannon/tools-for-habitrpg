@@ -9,6 +9,7 @@ import eslintPluginPrettier from 'eslint-plugin-prettier';
 import tsEslint from 'typescript-eslint';
 import headers from 'eslint-plugin-headers';
 import tsdoc from 'eslint-plugin-tsdoc';
+import importPlugin from 'eslint-plugin-import';
 
 export default [
   eslintJs.configs.recommended,
@@ -35,6 +36,7 @@ export default [
       n: nodePlugin,
       prettier: eslintPluginPrettier,
       headers: headers,
+      import: importPlugin,
     },
     rules: {
       'import/no-unresolved': 'error',
