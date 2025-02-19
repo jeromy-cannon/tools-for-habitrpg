@@ -37,6 +37,7 @@ export default [
       headers: headers,
     },
     rules: {
+      'import/no-unresolved': 'error',
       'headers/header-format': [
         'error',
         {
@@ -64,7 +65,7 @@ export default [
           property: 'only',
         },
       ],
-      'n/no-missing-import': 'off',
+      'n/no-missing-import': 'error',
       'n/no-empty-function': 'off',
       'n/no-unsupported-features/es-syntax': 'off',
       'n/no-missing-require': 'off',
@@ -142,8 +143,8 @@ export default [
       'no-restricted-syntax': [
         'error',
         {
-          selector: "ImportDeclaration[importKind='type'] ImportSpecifier",
-          message: "Use `import {type X} from 'path';` instead of `import type {X} from 'path';`.",
+          selector: 'ImportDeclaration[importKind=\'type\'] ImportSpecifier',
+          message: 'Use `import {type X} from \'path\';` instead of `import type {X} from \'path\';`.',
         },
       ],
     },

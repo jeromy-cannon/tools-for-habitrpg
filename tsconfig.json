@@ -12,7 +12,7 @@
     "moduleDetection": "force",
     "importsNotUsedAsValues": "remove",
     "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "node",
     "types": [
       "node",
       //"mocha",
