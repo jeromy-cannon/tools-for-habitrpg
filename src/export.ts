@@ -77,9 +77,9 @@ async function main(argv: string[]) {
         element = Elements.EARTH;
       }
     });
-    if (habit.text === 'M:Vitamins') {
-      console.log(habit.text);
-    }
+    // if (habit.text === 'M:Vitamins') {
+    //   console.log(habit.text);
+    // }
     // if (habit.type === 'habit') {
     //   console.log(habit.type);
     // } else { // daily
@@ -96,12 +96,16 @@ async function main(argv: string[]) {
     if (habit.notes) {
       habitDescription += `:${habit.notes}`;
     }
-    habit.history.forEach(historyItem => {
-      if (historyItem.completed && midnightOfToday.valueOf() < new Date(historyItem.date).valueOf()) {
-        const dateString: string = new Date(historyItem.date).toISOString().replace('T', '@').slice(0, 19);
-        habitMap.set(dateString, habitDescription);
-      }
-    });
+    try {
+      habit.history?.forEach(historyItem => {
+        if (historyItem.completed && midnightOfToday.valueOf() < new Date(historyItem.date).valueOf()) {
+          const dateString: string = new Date(historyItem.date).toISOString().replace('T', '@').slice(0, 19);
+          habitMap.set(dateString, habitDescription);
+        }
+      });
+    } catch (e: Error | any) {
+      console.log(e?.message, e);
+    }
     // console.log(`${dateString}:${habitDescription}`)
   });
   Array.from(habitMap.keys())
