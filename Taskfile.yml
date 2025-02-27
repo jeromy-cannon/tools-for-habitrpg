@@ -19,10 +19,30 @@ tasks:
       - task: default
       - source ~/.nvm/nvm.sh && nvm use v23 && pnpm exec tsx src/export.ts
 
-  run-yesterday:
+  run-1:
     cmds:
       - task: default
       - source ~/.nvm/nvm.sh && nvm use v23 && pnpm exec tsx src/export.ts -1
+
+  run-2:
+    cmds:
+      - task: default
+      - source ~/.nvm/nvm.sh && nvm use v23 && pnpm exec tsx src/export.ts -2
+
+  run-3:
+    cmds:
+      - task: default
+      - source ~/.nvm/nvm.sh && nvm use v23 && pnpm exec tsx src/export.ts -3
+
+  run-4:
+    cmds:
+      - task: default
+      - source ~/.nvm/nvm.sh && nvm use v23 && pnpm exec tsx src/export.ts -4
+
+  run-5:
+    cmds:
+      - task: default
+      - source ~/.nvm/nvm.sh && nvm use v23 && pnpm exec tsx src/export.ts -5
 
   format:
     cmds:
