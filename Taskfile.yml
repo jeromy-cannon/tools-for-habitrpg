@@ -17,7 +17,7 @@ tasks:
   run:
     cmds:
       - task: default
-      - source ~/.nvm/nvm.sh && nvm use v23 && pnpm exec tsx src/export.ts {{.CLI_ARGS}}
+      - source ~/.nvm/nvm.sh > /dev/null 2>&1 && nvm use v23 > /dev/null 2>&1 && pnpm exec tsx src/export.ts {{.CLI_ARGS}}
 
   format:
     cmds:
